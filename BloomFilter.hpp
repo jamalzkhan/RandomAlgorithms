@@ -22,7 +22,7 @@ public:
 
     void add(const Key& key);
     void del(const Key& key);
-    bool testExist(const Key& key, bool verbose = false);
+    int testExist(const Key& key, bool verbose = false);
 
 private:
     unsigned long hash1(const Key& key);

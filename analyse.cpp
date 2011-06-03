@@ -11,7 +11,6 @@
 
 #include <sys/time.h>
 #include <stdlib.h>
-int gettimeofday(struct timeval * tv, struct timezone *tz);
 
 using namespace std;
 
@@ -158,8 +157,9 @@ int main(int argc, char* argv[]) {
     gnuScreenPlotCount += countL +stringFrom<int>(columnCount)+lSkip;
     if (columnCount >2) {
       gnuScreenPlotTime+=',';
-      gnuScreenPlotTime += timeL + stringFrom<int>(columnCount)+lSkip;
     }
+     gnuScreenPlotTime += timeL + stringFrom<int>(columnCount)+lSkip;
+    
     columnCount++;
   }
   if (plotBF) {
@@ -294,20 +294,24 @@ int main(int argc, char* argv[]) {
         }
 
         if (testNum <= NUM_BINS || i%(testNum/NUM_BINS) == 0 ) {
-          if (plotList) {
-            counteroutput << i <<" "<< testListCount/NUM_TRIALS/binSize << endl;
-            timeroutput<< i <<" "<< outlierDeletedMean(testListTimes)/binSize << endl ;
+         counteroutput << i;
+         timeroutput<< i ;
+         if (plotList) {
+            counteroutput <<" "<< testListCount/NUM_TRIALS/binSize ;
+            timeroutput<<" "<< outlierDeletedMean(testListTimes)/binSize  ;
           }
           if (plotBF) {
-            counteroutput << i <<" "<< testBFCount/NUM_TRIALS/binSize << endl;
-            timeroutput << i << " "<< outlierDeletedMean(testBFTimes)/binSize << endl;
+            counteroutput <<" "<< testBFCount/NUM_TRIALS/binSize ;
+            timeroutput << " "<< outlierDeletedMean(testBFTimes)/binSize ;
           }
           if (plotRBST) {
-            counteroutput << i << " "<< testRBSTCount/NUM_TRIALS/binSize << endl;
-           timeroutput<< i << " "<< outlierDeletedMean(testRBSTTimes)/binSize << endl;
+            counteroutput << " "<< testRBSTCount/NUM_TRIALS/binSize ;
+            timeroutput << " "<< outlierDeletedMean(testRBSTTimes)/binSize;
            }
   
-  
+          counteroutput << endl;
+          timeroutput   << endl;
+ 
           binSize = 1;
 
           for (unsigned int t=0; t <NUM_TRIALS ; t++) {
@@ -421,20 +425,25 @@ int main(int argc, char* argv[]) {
         addedWords.erase(addedWords.begin()+ index);
 
         if (testNum <= NUM_BINS || i%(testNum/NUM_BINS) == 0 ) {
-           int counter =testNum - i-1;
-           if (plotList) {
-            counteroutput << counter <<" "<< testListCount/NUM_TRIALS/binSize << endl;
-            timeroutput << counter <<" "<< outlierDeletedMean(testListTimes)/binSize <<endl;
+          int counter =testNum - i-1;
+          counteroutput << counter; 
+          timeroutput << counter ;
+          
+        if (plotList) {
+            counteroutput <<" "<< testListCount/NUM_TRIALS/binSize ;
+            timeroutput  <<" "<< outlierDeletedMean(testListTimes)/binSize;
            }
           if (plotBF) {
-            counteroutput<< counter << " "<< testBFCount/NUM_TRIALS/binSize <<endl;
-            timeroutput  << counter << " "<< outlierDeletedMean(testBFTimes)/binSize <<endl;
+            counteroutput << " "<< testBFCount/NUM_TRIALS/binSize ;
+            timeroutput  << " "<< outlierDeletedMean(testBFTimes)/binSize ;
           }
           if (plotRBST) {
-            counteroutput << counter << " "<< testRBSTCount/NUM_TRIALS/binSize <<endl;
-            timeroutput <<  counter << " "<< outlierDeletedMean(testRBSTTimes)/binSize <<endl;
+            counteroutput << " "<< testRBSTCount/NUM_TRIALS/binSize;
+            timeroutput  << " "<< outlierDeletedMean(testRBSTTimes)/binSize ;
           }
- 
+          counteroutput << endl;
+          timeroutput   << endl;
+
           binSize = 1;
 
           for (unsigned int t=0; t <NUM_TRIALS ; t++) {
@@ -529,18 +538,22 @@ int main(int argc, char* argv[]) {
         }
 
         if (testNum <= NUM_BINS || i%(testNum/NUM_BINS) == 0 ) {
-          if (plotList) {
-            counteroutput<< i <<" "<< testListCount/NUM_TRIALS/binSize << endl;
-            timeroutput << i<<" "<< outlierDeletedMean(testListTimes)/binSize << endl;
+          counteroutput<< i ;
+          timeroutput << i ;
+         if (plotList) {
+            counteroutput<<" "<< testListCount/NUM_TRIALS/binSize;
+            timeroutput <<" "<< outlierDeletedMean(testListTimes)/binSize;
          }
           if (plotBF) {
-            counteroutput<< i << " "<< testBFCount/NUM_TRIALS/binSize << endl;
-            timeroutput<< i << " "<< outlierDeletedMean(testBFTimes)/binSize << endl;
+            counteroutput<< " "<< testBFCount/NUM_TRIALS/binSize ;
+            timeroutput << " "<< outlierDeletedMean(testBFTimes)/binSize ;
          }
           if (plotRBST) {
-            counteroutput<< i<< " "<< testRBSTCount/NUM_TRIALS/binSize << endl;
-            timeroutput<< i<< " "<< outlierDeletedMean(testRBSTTimes)/binSize << endl;
+            counteroutput<< " "<< testRBSTCount/NUM_TRIALS/binSize ;
+            timeroutput<< " "<< outlierDeletedMean(testRBSTTimes)/binSize ;
           }
+          counteroutput << endl;
+          timeroutput   << endl;
    
   
           binSize = 1;

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <assert.h>
 #include <vector>
+#include <stdlib.h>
 #include <math.h>
 #include "Key.hpp"
 #include "DataStructure.hpp"
@@ -41,10 +42,20 @@ public:
         return this;
     }
 
+    int getSize(){
+    	return size;
+    }
+
+    void setSize(int i){
+    	size = i;
+    }
+
 private:
     RBSTNode() {}
     RBSTNode* m_left;
     RBSTNode* m_right;
+    /* Added variable */
+    int size;
 };
 
 
@@ -67,6 +78,11 @@ public:
     int dump(char sep = ' ');
     int dump(RBSTNode* target, char sep);
 
+    /* Our functions */
+       RBSTNode * deleteNode(RBSTNode *);
+       RBSTNode * deleteLeftMost(RBSTNode *);
+       RBSTNode * leftMost(RBSTNode *);
+
 private:
     RBSTNode* randomAdd(RBSTNode* target, const Key& key);
     RBSTNode* addRoot(RBSTNode* target, const Key& key);
@@ -79,7 +95,6 @@ private:
 
     RBSTNode* m_head;
     unsigned int m_size;
-
 
 };
 

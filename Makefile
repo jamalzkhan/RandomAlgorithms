@@ -9,7 +9,7 @@ analyse.o: analyse.cpp
 
 BloomFilter.o: BloomFilter.cpp BloomFilter.hpp
 
-SkipList.o: SkipList.cpp SkipList.hpp
+SkipList.o: SLTest.cpp SkipList.cpp SkipList.hpp
 
 RBST.o: RBST.cpp RBST.hpp
 

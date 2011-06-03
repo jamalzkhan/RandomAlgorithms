@@ -24,18 +24,20 @@ public:
     virtual ~SkipListNode() {}
 
 
-    //retuns the hight of this node
+	/* Returns the height of this node */
     unsigned int height() {
         return m_links.size();
     };
 
-    //returns pointer to the next node at a given level
+	/* Returns a pointer to the next node at a given level */
+
     SkipListNode* nextAtLevel(unsigned int level) {
         assert (level >=0 && level < m_links.size());
         return m_links[level];
     };
 
-    //setup the pointer at the next node at a given level
+	/* Setup pointer at the next node at a given level */
+
     void setNextAtLevel(unsigned int level, SkipListNode* next) {
         assert (level >=0 && level < m_links.size());
         m_links[level] = next;
