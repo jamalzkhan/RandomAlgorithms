@@ -1,0 +1,7 @@
+This project contains an implementation of Randomised Data Structures. It is part of coursework done at Imperial College London.
+
+There are three types of structures that we have:
+ - Skip Lists
+ - Randomised Binary Tree
+ - Bloom Filter
+
